@@ -6,7 +6,6 @@ import {AuthDto} from '../dto/auth.dto';
 @Injectable()
 export class AuthService {
   async createToken(authDto: AuthDto) {
-    console.log(authDto)
     const user: JwtPayload = { email: authDto.email, senha: authDto.senha };
     const expiresIn = 3600; //TODO tempo de expiracao
     const accessToken = jwt.sign(user, 'secretKey', { expiresIn }); //TODO trocar secretKey

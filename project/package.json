@@ -15,6 +15,8 @@
     "@nestjs/swagger": "^2.0.2",
     "class-transformer": "^0.1.9",
     "class-validator": "^0.8.5",
+    "dotenv": "^6.0.0",
+    "joi": "^13.4.0",
     "mysql2": "^1.5.3",
     "passport": "^0.4.0",
     "passport-http-bearer": "^1.0.1",
@@ -28,6 +30,7 @@
   },
   "devDependencies": {
     "@types/jest": "^20.0.8",
+    "@types/joi": "^13.0.8",
     "@types/node": "^7.0.41",
     "@types/sequelize": "^4.27.21",
     "jest": "^20.0.4",
