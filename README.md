@@ -22,6 +22,15 @@ $ yarn or npm install
 $ yarn start or npm run start
 ````
 
+* To run in developement mode with nodemon
+````
+$ yarn start:dev or npm run start:dev
+````
+* To run in production mode
+````
+$ yarn start:prod or npm run start:prod
+````
+
 ### Swagger UI
 * To access swagger type on browser <b>http://localhost:3000/api</b>
 
