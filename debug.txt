@@ -1,7 +1,0 @@
-Para configurar debug no WebStorm
-
-Configure debug em nodeJS
-
-Node parameters: --inspect-brk -r ts-node/register 
-Working directory: path da aplicação
-Javascript file: arquivo que inicia aplicação
