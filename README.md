@@ -1,4 +1,5 @@
-#Start Project in TypeScript NestJS
+# Start Project in TypeScript NestJS
+Create By Phelipe Mizerani
 
 ### Features 
 * Sequelize
