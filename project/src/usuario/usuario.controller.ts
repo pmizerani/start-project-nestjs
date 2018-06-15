@@ -37,11 +37,11 @@ export class UsuarioController {
     @ApiImplicitQuery({name: 'orderByColumn', type: string, required: false})
     @ApiImplicitQuery({name: 'offset', type: number, required: false})
     @ApiImplicitQuery({name: 'limit', type: number, required: false})
-    @ApiImplicitQuery({name: 'fields', type: array, required: false, isArray: true})
+    @ApiImplicitQuery({name: 'fields', type: array, required: false, isArray: true, description: 'Exemplo [{"nome":"Nome"},{"email": "email@email.com"}]'})
     @ApiOperation({title: 'Buscar Todos'})
     @ApiResponse({status: 200, description: 'Busca realizada com sucesso.'})
     @ApiResponse({status: 403, description: 'Permissão negada.'})
-    // @UseGuards(AuthGuard('jwt'))
+    @UseGuards(AuthGuard('jwt'))
     async findAll(@Query() filter: Filter): Promise<Usuario[]> {
         return await this.usuarioService.findAll(filter);
     }//end findAll

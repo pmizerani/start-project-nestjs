@@ -74,16 +74,24 @@ export class UsuarioService {
     /**
      * findAll
      * @param {Filter} filter
-     * @returns {Promise<Usuario[]>}
+     * @returns {Promise<any>}
      */
-    async findAll(filter: Filter): Promise<Usuario[]> {
+    async findAll(filter: Filter): Promise<any> {
 
-        console.log(filter)
-        console.log(filter.fields) 
-        console.log(JSON.parse(filter.fields[0]).nome)
+        let filtro = {
+            where: {},
+            limit: 10,
+            offset: 0,
+            order: [['id', 'ASC']]
+        }
+
+        if (filter.limit) filtro.limit = parseInt(filter.limit.toString());
+        if (filter.offset) filtro.offset = parseInt(filter.offset.toString());
+        if (filter.orderByColumn) filtro.order = [[filter.orderByColumn, `${ filter.orderByDirection ? filter.orderByDirection : 'ASC'}`]];
+        if (filter.fields) filtro.where = JSON.parse(filter.fields.toString());
 
         // return this.usuarioRepository.sequelize.query('select * from usuario', { type: this.usuarioRepository.sequelize.QueryTypes.SELECT});
-        return await this.usuarioRepository.findAll<Usuario>({include: [UsuarioContato]});
+        return await this.usuarioRepository.findAndCountAll<any>(filtro);
 
     }//end findAll
 
