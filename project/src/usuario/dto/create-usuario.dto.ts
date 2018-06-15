@@ -6,15 +6,15 @@ export class CreateUsuarioDto {
 
     @ApiModelProperty({type: String})
     @IsString()
-    readonly name: string;
-
-    @ApiModelProperty({ type: Number })
-    @IsInt()
-    readonly age: number;
+    readonly nome: string;
 
     @ApiModelProperty({ type: String })
     @IsString()
-    readonly breed: string;
+    readonly email: string;
+
+    @ApiModelProperty({ type: String })
+    @IsString()
+    public senha: string;
 
     @ApiModelProperty({ type: UsuarioContato, isArray: true })
     readonly usuario_contato: UsuarioContato[]

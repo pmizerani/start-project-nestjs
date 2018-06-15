@@ -47,7 +47,7 @@ export class ConfigService {
         }
         return validatedEnvConfig;
 
-    }
+    }//end validateInput
 
     /**
      * config
@@ -55,6 +55,6 @@ export class ConfigService {
      */
     get config(): any {
         return this.envConfig;
-    }
+    }//end config
 
 }

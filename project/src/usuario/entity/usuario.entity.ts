@@ -4,11 +4,11 @@ import {UsuarioContato} from './usuario_contato.entity';
 @Table({tableName: 'usuario'})
 export class Usuario extends Model<Usuario> {
 
-    @Column name: string;
+    @Column nome: string;
 
-    @Column age: number;
+    @Column email: string;
 
-    @Column breed: string;
+    @Column senha: string;
 
     @HasMany(() => UsuarioContato)
     usuario_contato: UsuarioContato;

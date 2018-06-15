@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "ts-node src/main.ts",
+    "start:dev": "nodemon",
     "prestart:prod": "tsc",
     "start:prod": "node dist/main.js"
   },
@@ -15,6 +16,7 @@
     "@nestjs/swagger": "^2.0.2",
     "class-transformer": "^0.1.9",
     "class-validator": "^0.8.5",
+    "crypto": "^1.0.1",
     "dotenv": "^6.0.0",
     "joi": "^13.4.0",
     "mysql2": "^1.5.3",

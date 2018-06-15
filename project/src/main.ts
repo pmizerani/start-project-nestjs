@@ -5,15 +5,19 @@ import {ConfigService} from './config/config.service';
 
 const configService = new ConfigService(`${process.env.NODE_ENV ? process.env.NODE_ENV : 'development'}.env`);
 
+/**
+ * bootstrap
+ * @returns {Promise<void>}
+ */
 async function bootstrap() {
 
     const app = await NestFactory.create(ApplicationModule);
 
     const options = new DocumentBuilder()
-        .setTitle('API NFSE')
-        .setDescription('API para geração de nota fiscal de serviços eletrônica')
+        .setTitle('Start Project NestJS')
+        .setDescription('API de exemplo')
         .setVersion('1.0')
-        .addTag('nfse')
+        .addTag('API')
         .addBearerAuth()
         .build();
     const document = SwaggerModule.createDocument(app, options);

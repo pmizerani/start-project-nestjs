@@ -1,30 +1,39 @@
-import {Controller, Get, Post, Body, UseGuards} from '@nestjs/common';
+import {Controller, Post, Body, Res, HttpStatus} from '@nestjs/common';
 import {ApiUseTags, ApiBearerAuth, ApiResponse, ApiOperation} from '@nestjs/swagger';
-import {AuthGuard} from '@nestjs/passport';
 import {AuthService} from './service/auth.service';
 import {AuthDto} from './dto/auth.dto';
 
 @ApiBearerAuth()
-@ApiUseTags('nfse')
+@ApiUseTags('API')
 @Controller('auth')
 export class AuthController {
-    constructor(private readonly authService: AuthService) {
-    }
+    constructor(
+        private readonly authService: AuthService
+    ) {}
 
-    @Post('token')
-    @ApiOperation({title: 'Create token'})
-    @ApiResponse({status: 200, description: 'The token has been successfully created.',})
-    @ApiResponse({status: 403, description: 'Forbidden.'})
-    async createToken(@Body() authDto: AuthDto): Promise<any> {
-        return await this.authService.createToken(authDto);
-    }
+    /**
+     * createToken
+     * @param res
+     * @param {AuthDto} authDto
+     * @returns {Promise<any>}
+     */
+    @Post('login')
+    @ApiOperation({title: 'Login'})
+    @ApiResponse({status: 200, description: 'Login efetuado com sucesso.',})
+    @ApiResponse({status: 401, description: 'Não autorizado.'})
+    async createToken(@Res() res, @Body() authDto: AuthDto): Promise<any> {
 
-    @Get('data')
-    @ApiOperation({title: 'Buscar tudo'})
-    @ApiResponse({status: 200, description: 'Buscou tudo',})
-    @ApiResponse({status: 403, description: 'Forbidden.'})
-    @UseGuards(AuthGuard('jwt'))
-    findAll() {
-        return 'Sucesso';
-    }
+        const resultado = await this.authService.createToken(authDto);
+
+        if (!resultado) {
+            return res.status(HttpStatus.UNAUTHORIZED).json({
+                'statusCode': 401,
+                'error': 'Unauthorized'
+            });
+        }
+
+        return res.status(HttpStatus.OK).json(resultado);
+
+    }//end createToken
+
 }
