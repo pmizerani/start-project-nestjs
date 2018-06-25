@@ -28,6 +28,7 @@ $ yarn start:dev or npm run start:dev
 ````
 * To run in production mode
 ````
+$ yarn prestart:prod or npm run prestart:prod
 $ yarn start:prod or npm run start:prod
 ````
 
