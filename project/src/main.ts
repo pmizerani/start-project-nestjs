@@ -13,15 +13,17 @@ async function bootstrap() {
 
     const app = await NestFactory.create(ApplicationModule);
 
-    const options = new DocumentBuilder()
-        .setTitle('Start Project NestJS')
-        .setDescription('API de exemplo')
-        .setVersion('1.0')
-        .addTag('API')
-        .addBearerAuth()
-        .build();
-    const document = SwaggerModule.createDocument(app, options);
-    SwaggerModule.setup('api', app, document);
+    if (!process.env.NODE_ENV || ('development' === process.env.NODE_ENV || 'test' === process.env.NODE_ENV)) {
+        const options = new DocumentBuilder()
+            .setTitle('Start Project NestJS')
+            .setDescription('API de exemplo')
+            .setVersion('1.0')
+            .addTag('API')
+            .addBearerAuth()
+            .build();
+        const document = SwaggerModule.createDocument(app, options);
+        SwaggerModule.setup('api', app, document);
+    }
 
     app.enableCors();
     await app.listen(configService.config.PORT);
