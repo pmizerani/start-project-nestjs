@@ -17,7 +17,8 @@ export const databaseProviders = [
                 username: configService.config.MYSQL_USER,
                 password: configService.config.MYSQL_PASS,
                 database: configService.config.MYSQL_DATABASE,
-                timezone: '+00:00'
+                timezone: '+00:00',
+                logging: configService.config.MYSQL_LOGGING
             });
             sequelize.addModels([Usuario, UsuarioContato]); //TODO passar as entidades aqui
             await sequelize.sync();

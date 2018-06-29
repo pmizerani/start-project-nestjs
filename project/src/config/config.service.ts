@@ -36,6 +36,7 @@ export class ConfigService {
             MYSQL_PASS: Joi.string().default('q1w2e3r4'),
             MYSQL_DATABASE: Joi.string().default('nest'),
             MYSQL_PORT: Joi.number().default(3306),
+            MYSQL_LOGGING: Joi.boolean().default(true),
         });
 
         const { error, value: validatedEnvConfig } = Joi.validate(
