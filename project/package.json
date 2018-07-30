@@ -27,6 +27,7 @@
     "rxjs": "^6.0.0",
     "sequelize": "^4.37.10",
     "sequelize-typescript": "^0.6.5",
+    "simple-node-logger": "^0.93.37",
     "swagger": "^0.7.5",
     "typescript": "^2.8.1"
   },

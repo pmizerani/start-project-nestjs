@@ -23,16 +23,24 @@ export class AuthController {
     @ApiResponse({status: 401, description: 'Não autorizado.'})
     async createToken(@Res() res, @Body() authDto: AuthDto): Promise<any> {
 
-        const resultado = await this.authService.createToken(authDto);
+        try {
 
-        if (!resultado) {
-            return res.status(HttpStatus.UNAUTHORIZED).json({
-                'statusCode': 401,
-                'error': 'Unauthorized'
-            });
+            const resultado = <any> await this.authService.createToken(authDto);
+
+            if (!resultado) {
+                return res.status(HttpStatus.UNAUTHORIZED).json({
+                    'statusCode': 401,
+                    'error': 'Unauthorized'
+                });
+            }
+
+            return res.status(HttpStatus.OK).json(resultado);
+
+        } catch (err) {
+
+            return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(err);
+
         }
-
-        return res.status(HttpStatus.OK).json(resultado);
 
     }//end createToken
 

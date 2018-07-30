@@ -3570,7 +3570,7 @@ lodash@^3.10.0, lodash@^3.3.1:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
-lodash@^4.11.1, lodash@^4.17.1, lodash@^4.3.0, lodash@^4.7.0:
+lodash@^4.11.1, lodash@^4.17.1, lodash@^4.17.2, lodash@^4.3.0, lodash@^4.7.0:
   version "4.17.10"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
 
@@ -3898,7 +3898,7 @@ moment-timezone@^0.5.14:
   dependencies:
     moment ">= 2.9.0"
 
-"moment@>= 2.9.0", moment@^2.20.0:
+"moment@>= 2.9.0", moment@^2.20.0, moment@^2.20.1:
   version "2.22.2"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
 
@@ -5157,6 +5157,13 @@ sigmund@~1.0.0:
 signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
+
+simple-node-logger@^0.93.37:
+  version "0.93.37"
+  resolved "https://registry.yarnpkg.com/simple-node-logger/-/simple-node-logger-0.93.37.tgz#4e1235917b3b4a8d6cc10e0208d157189afb2106"
+  dependencies:
+    lodash "^4.17.2"
+    moment "^2.20.1"
 
 slash@^1.0.0:
   version "1.0.0"
