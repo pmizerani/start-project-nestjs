@@ -1,2 +1,4 @@
 ./idea
 logs
+./project/yarn.lock
+./project/package-lock.json
