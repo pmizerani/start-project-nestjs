@@ -1,11 +1,11 @@
-import {Controller, Get, Post, Body, Param, UseGuards, Put, Delete, Query} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Param, Post, Put, Query, UseGuards} from '@nestjs/common';
 import {ApiBearerAuth, ApiImplicitQuery, ApiOperation, ApiResponse, ApiUseTags} from '@nestjs/swagger';
 import {CreateUsuarioDto} from './dto/create-usuario.dto';
 import {UsuarioService} from './service/usuario.service';
 import {Usuario} from './entity/usuario.entity';
 import {AuthGuard} from '@nestjs/passport';
 import {Filter} from '../interface/filter.interface';
-import {array, number, object, string} from 'joi';
+import {array, number, string} from 'joi';
 
 @ApiBearerAuth()
 @ApiUseTags('usuario')
